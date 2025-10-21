@@ -52,14 +52,14 @@ void setup()
     delay(1000);
     WiFi.mode(WIFI_STA);
   #endif
-    WiFi.begin(ssid.c_str(), pwd.c_str());
-    WiFi.config(ip, gateway, subnet);
+  WiFi.begin(ssid.c_str(), pwd.c_str());
+  WiFi.config(ip, gateway, subnet);
 
-    Serial.println("Wifi Connecting");
-    while (WiFi.status() != WL_CONNECTED) {
-      delay(150);
-      Serial.println(".");
-    }
+  Serial.println("Wifi Connecting");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(150);
+    Serial.println(".");
+  }
 
   OscWiFi.subscribe(oscPort, "/rfid_confirm", onOscConfirmRFID);
 
