@@ -96,7 +96,7 @@ void showCardInfo(MFRC522 &rfid, int index) {
   String uid = "";
   for (byte i = 0; i < rfid.uid.size; i++)
   {
-    uid += String(rfid.uid.uidByte[i], HEX);    
+    uid += String(rfid.uid.uidByte[i]);    
   }
   Serial.println(uid);
 
