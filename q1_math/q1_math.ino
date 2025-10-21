@@ -58,7 +58,7 @@ void loop() {
   float accMag = sqrt(accX * accX + accY * accY + accZ * accZ);
   Serial.printf("Magnitude: %.2f g\n", accMag);
 
-  if (accMag > 0)
+  if (accMag > 3)
   {
     OscWiFi.send(oscAppHost, oscPort, "/accMag", ROOM_NUM);
   }
