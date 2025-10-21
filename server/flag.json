@@ -1,0 +1,42 @@
+[
+    {
+        "comment": "数学",
+        "name": "math",
+        "clear": false
+    },
+    {
+        "comment": "情報",
+        "name": "informatics",
+        "clear": false
+    },
+    {
+        "comment": "英語",
+        "name": "english",
+        "clear": false
+    },
+    {
+        "comment": "美術A",
+        "name": "art_a",
+        "clear": false
+    },
+    {
+        "comment": "美術B",
+        "name": "art_b",
+        "clear": false
+    },
+    {
+        "comment": "NormalEnd",
+        "name": "normal_end",
+        "clear": false
+    },
+    {
+        "comment": "BadEnd",
+        "name": "bad_end",
+        "clear": false
+    },
+    {
+        "comment": "TrueEnd",
+        "name": "true_end",
+        "clear": false
+    }
+]
