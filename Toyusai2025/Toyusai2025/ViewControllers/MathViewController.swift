@@ -9,19 +9,28 @@ import UIKit
 
 class MathViewController: BaseViewController
 {
-    @IBOutlet weak var answerBtn: UIButton!
-    @IBOutlet weak var TextField: UITextField!
+
+    @IBOutlet weak var TimerLbl: CustomLabel!
+    
+    @IBOutlet weak var PointH: UIView!
+    @IBOutlet weak var PintM: UIView!
+    
+    @IBOutlet weak var PointHLbl: CustomLabel!
+    @IBOutlet weak var PointMLbl: CustomLabel!
+    
+    @IBOutlet weak var SpeedCount: CustomLabel!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
 		
-		// 線の太さ
-        answerBtn.layer.borderWidth = 2
-		// 線の色
-        answerBtn.layer.borderColor = UIColor.black.cgColor
-        answerBtn.layer.cornerRadius = 30
     }
+    
+    @IBAction func AnserBtn(_ sender: Any)
+    {
+        
+    }
+    
     
 
 }

@@ -9,20 +9,19 @@ import UIKit
 
 class ArtAViewController: UIViewController
 {
-    @IBOutlet weak var ArtBtnA: UIButton!
-    @IBOutlet weak var ACameraBtnA: UIButton!
 
-	override func viewDidLoad()
+    @IBOutlet weak var TimerLbl: CustomLabel!
+    
+    @IBOutlet weak var MonthTextField: UITextField!
+    @IBOutlet weak var DayTextField: UITextField!
+    
+    override func viewDidLoad()
     {
         super.viewDidLoad()
 
-        ArtBtnA.layer.borderWidth = 2
-        ArtBtnA.layer.borderColor = UIColor.black.cgColor
-        ArtBtnA.layer.cornerRadius = 30
-        
-        ACameraBtnA.layer.borderWidth = 2
-        ACameraBtnA.layer.borderColor = UIColor.white.cgColor
-        ACameraBtnA.layer.cornerRadius = 30
+
     }
 
+    @IBAction func AnserBtn(_ sender: Any) {
+    }
 }

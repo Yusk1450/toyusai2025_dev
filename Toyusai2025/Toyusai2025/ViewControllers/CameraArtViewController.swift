@@ -37,13 +37,13 @@ class CameraArtViewController: UIViewController, CamCaptureDelegate
         camera.captureMode = .grayView
         
         camera.redThreshold = 0.3 // 赤が他のgbよりどれくらい強いか
-        camera.minRed = 0.5 // どれだけ明るい赤か
+        camera.minRed = 0.1 // どれだけ明るい赤か
         
         camera.greenThreshold = 0.3 // 緑が他のrbよりどれくらい強いか
-        camera.minGreen = 0.5 // どれだけ明るい緑か
+        camera.minGreen = 0.1 // どれだけ明るい緑か
         
         camera.blueThreshold = 0.3 // 青が他のrgよりどれくらい強いか
-        camera.minBlue = 0.5 // どれだけ明るい青か
+        camera.minBlue = 0.1 // どれだけ明るい青か
         
         view.bringSubviewToFront(redButton)
         view.bringSubviewToFront(greenButton)

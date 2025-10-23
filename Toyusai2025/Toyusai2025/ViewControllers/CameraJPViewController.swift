@@ -8,11 +8,14 @@
 import UIKit
 import SceneKit
 import ARKit
+import AVFoundation
 
 class CameraJPViewController: UIViewController, ARSCNViewDelegate
 {
 
+    @IBOutlet weak var backBtn: UIButton!
     @IBOutlet var sceneView: ARSCNView!
+    var player: AVPlayer?
     
     @IBAction func BackBtnJ(_ sender: Any)
     {
@@ -51,33 +54,48 @@ class CameraJPViewController: UIViewController, ARSCNViewDelegate
         
         // Pause the view's session
         sceneView.session.pause()
+        NotificationCenter.default.removeObserver(self)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         
-        // if the anchor is not of type ARImageAnchor (which means image is not detected), just return
-        guard let imageAnchor = anchor as? ARImageAnchor else {return}
-        //find our video file
-        let videoNode = SKVideoNode(fileNamed: "JpAR.mp4")
-        videoNode.play()
-        // set the size (just a rough one will do)
-        let videoScene = SKScene(size: CGSize(width: 1920, height: 1080))
-        // center our video to the size of our video scene
+        guard let imageAnchor = anchor as? ARImageAnchor else { return }
+        
+        guard let url = Bundle.main.url(forResource: "JpAR", withExtension: "mov") else {return}
+        
+        let player = AVPlayer(url: url)
+        self.player = player
+
+        NotificationCenter.default.addObserver(
+            forName: .AVPlayerItemDidPlayToEndTime,
+            object: player.currentItem,
+            queue: .main
+        )
+        {_ in
+            print("画面遷移をする")
+        }
+        
+        let videoNode = SKVideoNode(avPlayer: player)
+
+        let videoScene = SKScene(size: CGSize(width: 591, height: 835))
         videoNode.position = CGPoint(x: videoScene.size.width / 2, y: videoScene.size.height / 2)
-        // invert our video so it does not look upside down
         videoNode.yScale = -1.0
-        // add the video to our scene
         videoScene.addChild(videoNode)
-        // create a plan that has the same real world height and width as our detected image
-        let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
-        // set the first materials content to be our video scene
+
+        let plane = SCNPlane(
+            width: imageAnchor.referenceImage.physicalSize.width,
+            height: imageAnchor.referenceImage.physicalSize.height
+        )
         plane.firstMaterial?.diffuse.contents = videoScene
-        // create a node out of the plane
         let planeNode = SCNNode(geometry: plane)
-        // since the created node will be vertical, rotate it along the x axis to have it be horizontal or parallel to our detected image
         planeNode.eulerAngles.x = -Float.pi / 2
-        // finally add the plane node (which contains the video node) to the added node
+
+        DispatchQueue.main.async
+        {
+            self.backBtn.isHidden = true
+            player.play()
+        }
+
         node.addChildNode(planeNode)
     }
-
 }
