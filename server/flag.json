@@ -1,5 +1,15 @@
 [
     {
+        "comment": "スタートA",
+        "name": "start_a",
+        "clear": true
+    },
+    {
+        "comment": "スタートB",
+        "name": "start_b",
+        "clear": true
+    },
+    {
         "comment": "数学",
         "name": "math",
         "clear": false
