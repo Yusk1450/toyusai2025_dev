@@ -65,19 +65,26 @@ class ViewController: UIViewController
 
 extension ViewController: OSCUdpServerDelegate
 {
-	func server(_ server: OSCUdpServer, didReceivePacket packet: any OSCPacket, fromHost host: String, port: UInt16)
-	{
-		if let message = packet as? OSCMessage
+	func server( _ server: OSCUdpServer, didReceivePacket packet: any OSCPacket, fromHost host: String, port: UInt16)
 		{
-			print(message.addressPattern.fullPath)
-			
-			if (message.addressPattern.fullPath == "/app/magic_mirror")
+			if let message = packet as? OSCMessage
 			{
-				UIScreen.main.brightness = 1.0
-				self.play()
+				print(message.addressPattern.fullPath)
+
+				if (message.addressPattern.fullPath == "/app/magicmirror")
+				{
+					UIScreen.main.brightness = 1.0
+					self.playerView.isHidden = false
+					self.play()
+				}
+				else if (message.addressPattern.fullPath == "/reset")
+				{
+					UIScreen.main.brightness = 0.0
+					self.playerView.isHidden = true
+				}
 			}
 		}
-	}
+
 	
 	func server(_ server: OSCUdpServer, socketDidCloseWithError error: (any Error)?)
 	{
