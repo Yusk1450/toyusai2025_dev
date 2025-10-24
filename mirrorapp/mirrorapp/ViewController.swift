@@ -22,6 +22,8 @@ class ViewController: UIViewController
 	{
 		super.viewDidLoad()
 		
+		UIScreen.main.brightness = 0.0
+		
 		self.oscServer = OSCUdpServer(port: self.port)
 		self.oscServer.delegate = self
 		
@@ -54,6 +56,11 @@ class ViewController: UIViewController
 		}
 		self.playerView.player?.play()
 	}
+	
+	override var prefersStatusBarHidden: Bool
+	{
+		return true
+	}
 }
 
 extension ViewController: OSCUdpServerDelegate
@@ -66,6 +73,7 @@ extension ViewController: OSCUdpServerDelegate
 			
 			if (message.addressPattern.fullPath == "/app/magic_mirror")
 			{
+				UIScreen.main.brightness = 1.0
 				self.play()
 			}
 		}
