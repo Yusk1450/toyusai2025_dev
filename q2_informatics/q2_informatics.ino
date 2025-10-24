@@ -61,6 +61,11 @@ void setup()
     Serial.println(".");
   }
 
+  for (int i = 0; i < 3; i++)
+  {
+    uids[i] = "";
+  }
+
   OscWiFi.subscribe(oscPort, "/rfid_confirm", onOscConfirmRFID);
 
   Serial.println("Initializing complete");
@@ -108,8 +113,7 @@ void showCardInfo(MFRC522 &rfid, int index) {
 
 void onOscConfirmRFID(const OscMessage& m) {
 
-  int idx = m.arg<int>(0);
-  OscWiFi.send(oscAppHost, oscPort, "/uuid"+String(idx), uids[idx]);
+  OscWiFi.send(oscAppHost, oscPort, "/uuid", uids[0], uids[1], uids[2]);
 
   Serial.println("onOscConfirmRFID");
 
