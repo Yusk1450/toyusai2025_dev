@@ -9,15 +9,15 @@
 #include <SPI.h>
 #include <MFRC522.h>
 
-String ssid = "hopter_wifi";
-String pwd = "hopter_1450";
+String ssid = "L305";
+String pwd = "4dp_1450";
 
-const IPAddress ip(192, 168, 0, 205);
+const IPAddress ip(192, 168, 0, 204);
 const IPAddress gateway(192, 168, 0, 1);
 const IPAddress subnet(255, 255, 255, 0);
 
 // OSC送信先（アプリ）
-char oscAppHost[16] = "192.168.43.201";       //15文字+1文字(\0)
+char oscAppHost[16] = "192.168.0.13";       //15文字+1文字(\0)
 extern const int oscPort = 33333;
 
 // リーダー1のピン定義
@@ -109,7 +109,7 @@ void showCardInfo(MFRC522 &rfid, int index) {
 void onOscConfirmRFID(const OscMessage& m) {
 
   int idx = m.arg<int>(0);
-  OscWiFi.send(oscAppHost, oscPort, "/uuid", uids[idx]);
+  OscWiFi.send(oscAppHost, oscPort, "/uuid"+String(idx), uids[idx]);
 
   Serial.println("onOscConfirmRFID");
 

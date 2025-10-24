@@ -10,15 +10,15 @@
 // 部屋番号（0 or 1）
 #define ROOM_NUM 0
 
-String ssid = "hopter_wifi";
-String pwd = "hopter_1450";
+String ssid = "L305";
+String pwd = "4dp_1450";
 
-const IPAddress ip(192, 168, 0, 205);
+const IPAddress ip(192, 168, 0, 202);
 const IPAddress gateway(192, 168, 0, 1);
 const IPAddress subnet(255, 255, 255, 0);
 
 // OSC送信先（アプリ）
-char oscAppHost[16] = "192.168.43.201";       //15文字+1文字(\0)
+char oscAppHost[16] = "192.168.0.13";       //15文字+1文字(\0)
 extern const int oscPort = 33333;
 
 void setup()
@@ -60,7 +60,7 @@ void loop() {
 
   if (accMag > 3)
   {
-    OscWiFi.send(oscAppHost, oscPort, "/accMag", ROOM_NUM);
+    OscWiFi.send(oscAppHost, oscPort, "/math/to/app/rooma", ROOM_NUM);
   }
 
   delay(100);
