@@ -201,7 +201,7 @@ extension GameDirector: OSCUdpServerDelegate
 		{
 			print(message.addressPattern.fullPath)
 			
-			// 数学デバイス
+			// 数学デバイス（部屋A）
 			if (message.addressPattern.fullPath == OSCAddress.MathDeviceRoomA.rawValue)
 			{
 				if let scene = self.currentScene as? MathScene
@@ -217,6 +217,7 @@ extension GameDirector: OSCUdpServerDelegate
 					}
 				}
 			}
+			// 数学デバイス（部屋B）
 			else if (message.addressPattern.fullPath == OSCAddress.MathDeviceRoomB.rawValue)
 			{
 				if let scene = self.currentScene as? MathScene
@@ -229,6 +230,19 @@ extension GameDirector: OSCUdpServerDelegate
 					else if (self.roomType == .B)
 					{
 						scene.movePointH()
+					}
+				}
+			}
+			// 情報デバイス
+			else if (message.addressPattern.fullPath == OSCAddress.InformaticsDeviceReceive.rawValue)
+			{
+				if let uuid1 = message.arguments[0] as? String,
+				   let uuid2 = message.arguments[1] as? String,
+				   let uuid3 = message.arguments[2] as? String
+				{
+					if let scene = self.currentScene as? InformaticsScene
+					{
+						scene.answerMarks(uuid1: uuid1, uuid2: uuid2, uuid3: uuid3)
 					}
 				}
 			}
