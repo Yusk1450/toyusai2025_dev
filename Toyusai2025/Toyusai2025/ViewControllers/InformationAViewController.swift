@@ -7,16 +7,16 @@
 
 import UIKit
 
-class InformationAViewController: UIViewController
+class InformationAViewController: BaseViewController
 {
-
-    @IBOutlet weak var TimerLbl: CustomLabel!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
-        
+		let director = GameDirector.shared
+		director.currentViewController = self
+		director.changeScene(scene: InformaticsScene())
     }
     
 

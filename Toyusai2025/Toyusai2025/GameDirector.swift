@@ -10,10 +10,19 @@ import OSCKit
 import Alamofire
 import SwiftyJSON
 
+// 部屋の種別
 enum RoomType: Int
 {
 	case A
 	case B
+}
+
+enum OSCAddress: String
+{
+	case MathDeviceRoomA = "/math/to/app/rooma"
+	case MathDeviceRoomB = "/math/to/app/roomb"
+	case InformaticsDeviceSend = "/rfid_confirm"
+	case InformaticsDeviceReceive = "/uuid"
 }
 
 protocol GameDirectorDelegate: AnyObject
@@ -29,13 +38,16 @@ class GameDirector: NSObject
 	var delegate:GameDirectorDelegate?
 
 	// 部屋種別
-	var roomType:RoomType = .A
+	var roomType:RoomType = .B
 	
 	// サーバIP
 	let ip = "192.168.0.33"
-	let port:UInt16 = 33333
-	
+	// サーバURL
 	var url:String!
+	
+	// OSCポート番号
+	let port:UInt16 = 33333
+	private let oscServer:OSCUdpServer!
 	
 	let lightIPAddress = [
 		"192.168.0.207",
@@ -59,7 +71,19 @@ class GameDirector: NSObject
 	
 	override init()
 	{
+		self.oscServer = OSCUdpServer(port: self.port)
+		
 		super.init()
+		self.oscServer.delegate = self
+		
+		do
+		{
+			try self.oscServer.startListening()
+		}
+		catch
+		{
+			print(error.localizedDescription)
+		}
 		
 		self.url = "http://\(self.ip):8888/WORKS/NBU/toyusai2025_dev/server"
 	}
@@ -122,13 +146,13 @@ class GameDirector: NSObject
 			)
 				.responseJSON { res in
 				
-					print(res.data)
+//					print(res.data)
 					
 					if let data = res.data
 					{
 						let json = JSON(data)
 						
-						print(json)
+//						print(json)
 						
 						for i in stride(from: 0, to: self.gimmickFlags.count, by: 1)
 						{
@@ -153,5 +177,69 @@ class GameDirector: NSObject
 				.responseJSON { res in
 			}
 		}
+	}
+	
+	/* ----------------------------------------------------
+	 * シーンの切り替え
+	 ----------------------------------------------------*/
+	func changeScene(scene:BaseScene)
+	{
+		self.currentScene?.stop(viewController: self.currentViewController)
+		self.currentScene?.delegate = nil
+		
+		self.currentScene = scene
+//		self.currentScene?.delegate = self
+		self.currentScene?.start(viewController: self.currentViewController)
+	}
+}
+
+extension GameDirector: OSCUdpServerDelegate
+{
+	func server(_ server: OSCUdpServer, didReceivePacket packet: any OSCPacket, fromHost host: String, port: UInt16)
+	{
+		if let message = packet as? OSCMessage
+		{
+			print(message.addressPattern.fullPath)
+			
+			// 数学デバイス
+			if (message.addressPattern.fullPath == OSCAddress.MathDeviceRoomA.rawValue)
+			{
+				if let scene = self.currentScene as? MathScene
+				{
+					// 自分が部屋Aのとき
+					if (self.roomType == .A)
+					{
+						scene.movePointH()
+					}
+					else if (self.roomType == .B)
+					{
+						scene.movePointM()
+					}
+				}
+			}
+			else if (message.addressPattern.fullPath == OSCAddress.MathDeviceRoomB.rawValue)
+			{
+				if let scene = self.currentScene as? MathScene
+				{
+					// 自分が部屋Aのとき
+					if (self.roomType == .A)
+					{
+						scene.movePointM()
+					}
+					else if (self.roomType == .B)
+					{
+						scene.movePointH()
+					}
+				}
+			}
+		}
+	}
+	
+	func server(_ server: OSCUdpServer, socketDidCloseWithError error: (any Error)?)
+	{
+	}
+	
+	func server(_ server: OSCUdpServer, didReadData data: Data, with error: any Error)
+	{
 	}
 }

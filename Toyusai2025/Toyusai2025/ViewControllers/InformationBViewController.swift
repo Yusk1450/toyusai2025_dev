@@ -6,18 +6,22 @@
 //
 
 import UIKit
+import OSCKit
 
-class InformationBViewController: UIViewController {
-
-    @IBOutlet weak var TimerLbl: CustomLabel!
-    
+class InformationBViewController: BaseViewController
+{
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
+		let director = GameDirector.shared
+		director.currentViewController = self
+		director.changeScene(scene: InformaticsScene())
     }
     
-    @IBAction func AnserBtn(_ sender: Any) {
+    @IBAction func AnswerBtnAction(_ sender: Any)
+	{
+		
     }
     
 

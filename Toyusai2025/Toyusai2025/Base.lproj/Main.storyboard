@@ -76,7 +76,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="600" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HG-bp-5dH" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="600" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HG-bp-5dH" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
                                 <rect key="frame" x="914" y="60" width="72" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -170,7 +170,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="点H" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Am-8W-mLG" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
-                                <rect key="frame" x="120" y="348" width="40" height="30"/>
+                                <rect key="frame" x="120" y="358" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -244,8 +244,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLC-OQ-zL6" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
-                                <rect key="frame" x="429" y="494" width="74" height="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLC-OQ-zL6" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
+                                <rect key="frame" x="78" y="494" width="423" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="32"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -268,7 +268,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uti-MM-xtT" customClass="CustomButton" customModule="Toyusai2025" customModuleProvider="target">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uti-MM-xtT" customClass="CustomButton" customModule="Toyusai2025" customModuleProvider="target">
                                 <rect key="frame" x="740" y="690" width="280" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -287,7 +287,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="Eig-1v-EmT" kind="presentation" id="e5G-J5-i8H"/>
+                                    <action selector="answerBtnAction:" destination="eZT-Gu-eWd" eventType="touchUpInside" id="kzl-Na-ofD"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="HideText1" translatesAutoresizingMaskIntoConstraints="NO" id="94z-vE-fKx">
@@ -302,18 +302,26 @@
                                 <rect key="frame" x="578" y="253" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jYS-Tu-eff" customClass="PlayerView" customModule="Toyusai2025" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="53F-ET-a8q"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
-                        <outlet property="PintM" destination="sLR-9F-gbL" id="mOV-YM-UxJ"/>
                         <outlet property="PointH" destination="t9l-YM-dIZ" id="Zks-oR-pcO"/>
                         <outlet property="PointHLbl" destination="5Am-8W-mLG" id="ewU-ZA-pcE"/>
+                        <outlet property="PointM" destination="sLR-9F-gbL" id="mOV-YM-UxJ"/>
                         <outlet property="PointMLbl" destination="OHM-ly-a7W" id="Pjk-tV-5kq"/>
                         <outlet property="SpeedCount" destination="SLC-OQ-zL6" id="CJq-jf-yzV"/>
-                        <outlet property="TimerLbl" destination="3HG-bp-5dH" id="DJD-b2-sDm"/>
+                        <outlet property="answerBtn" destination="Uti-MM-xtT" id="ZOi-i8-Al9"/>
+                        <outlet property="playerView" destination="jYS-Tu-eff" id="nTF-QN-kle"/>
+                        <outlet property="timeCountLbl" destination="3HG-bp-5dH" id="2wr-md-DlF"/>
                         <segue destination="Ysa-7V-Ezz" kind="presentation" identifier="toA" id="DdN-cX-kb7"/>
+                        <segue destination="Eig-1v-EmT" kind="presentation" identifier="toB" id="WKN-TQ-xTI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rnc-dz-K1N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -323,7 +331,7 @@
         <!--InformationA View Controller-->
         <scene sceneID="aYR-Bg-A2A">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Ysa-7V-Ezz" customClass="InformationAViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="Ysa-7V-Ezz" customClass="InformationAViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pch-ar-kAc">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -344,7 +352,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="600" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RA6-5z-Grl" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="600" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RA6-5z-Grl" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
                                 <rect key="frame" x="914" y="60" width="72" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -496,7 +504,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="TimerLbl" destination="RA6-5z-Grl" id="Ofo-V2-r4M"/>
+                        <outlet property="timeCountLbl" destination="RA6-5z-Grl" id="AcD-O6-uL1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b6x-FN-Yyd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -506,7 +514,7 @@
         <!--InformationB View Controller-->
         <scene sceneID="bla-J6-BvF">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Eig-1v-EmT" customClass="InformationBViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="Eig-1v-EmT" customClass="InformationBViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iFK-Ow-nfd">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -558,7 +566,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="600" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FC8-3p-LEG" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="600" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FC8-3p-LEG" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
                                 <rect key="frame" x="914" y="60" width="72" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -621,7 +629,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="AnserBtn:" destination="Eig-1v-EmT" eventType="touchUpInside" id="PLH-gd-BYU"/>
+                                    <action selector="AnswerBtnAction:" destination="Eig-1v-EmT" eventType="touchUpInside" id="PLH-gd-BYU"/>
                                     <segue destination="Gdy-VM-9Or" kind="presentation" id="STn-Fh-zj5"/>
                                 </connections>
                             </button>
@@ -631,7 +639,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="ACC-ME-Cvn"/>
                     <connections>
-                        <outlet property="TimerLbl" destination="FC8-3p-LEG" id="XNU-iz-k3i"/>
+                        <outlet property="timeCountLbl" destination="FC8-3p-LEG" id="3nW-HD-NdL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R5i-8B-DvL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
