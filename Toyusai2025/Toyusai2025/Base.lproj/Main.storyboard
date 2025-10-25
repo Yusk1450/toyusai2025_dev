@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0a9-C8-GXf">
     <device id="ipad10_2" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
@@ -136,7 +136,7 @@
                                 <rect key="frame" x="80" y="188" width="931" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">被害者Mが毎秒　mで進み、殺人鬼Hが毎秒　mで進むとき、被害者Mが殺人鬼Hに殺されるまでの時間を答えなさい。
-殺人鬼Hが被害者Mに追いついて殺害するまで　秒かかるでしょうか。</string>
+アイテムを振って確認してください。</string>
                                 <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -296,10 +296,6 @@
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="HideText1" translatesAutoresizingMaskIntoConstraints="NO" id="PIW-Ru-IyU">
                                 <rect key="frame" x="552" y="193" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="HideText2" translatesAutoresizingMaskIntoConstraints="NO" id="MOm-5S-NT2">
-                                <rect key="frame" x="578" y="253" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jYS-Tu-eff" customClass="PlayerView" customModule="Toyusai2025" customModuleProvider="target">
@@ -999,7 +995,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="ChangeColorText" value="見えるものを答えなさい。"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="下部にあるカメラボタンでカメラモードにし、「」のマークが写るように見なさい。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51C-YR-ssi" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="下部にあるカメラボタンでカメラモードにして見なさい。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51C-YR-ssi" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
                                 <rect key="frame" x="80" y="218" width="920" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="20"/>
@@ -1015,7 +1011,7 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="ChangeColor">
                                         <color key="value" red="1" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="ChangeColorText" value="「」のマークが写るように見なさい。"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="ChangeColorText" value="カメラモードにして見なさい。"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="回答" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBk-bg-cd8" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
@@ -1043,7 +1039,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CoT-dc-FTy" customClass="CustomView" customModule="Toyusai2025" customModuleProvider="target">
-                                <rect key="frame" x="442" y="375" width="195" height="60"/>
+                                <rect key="frame" x="315" y="348" width="195" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -1230,7 +1226,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="ChangeColorText" value="見えるものを答えなさい。"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="下部にあるカメラボタンでカメラモードにし、「」のマークが写るように見なさい。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ou4-ct-d8J" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="下部にあるカメラボタンでカメラモードにして見なさい。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ou4-ct-d8J" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
                                 <rect key="frame" x="80" y="218" width="920" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="20"/>
@@ -1246,7 +1242,7 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="ChangeColor">
                                         <color key="value" red="1" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="ChangeColorText" value="「」のマークが写るように見なさい。"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="ChangeColorText" value="カメラモードにして見なさい。"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="回答" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzG-RD-YBP" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
@@ -1953,15 +1949,14 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="WsV-I9-psa"/>
-        <segue reference="Rhd-mx-pV4"/>
+        <segue reference="QD3-9d-xv1"/>
+        <segue reference="A39-ik-fhK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="HeartBycycle" width="240" height="240"/>
         <image name="HeartCar" width="240" height="240"/>
         <image name="HeartGirl" width="240" height="240"/>
         <image name="HideText1" width="20" height="20"/>
-        <image name="HideText2" width="20" height="20"/>
         <image name="Home" width="2160" height="1620"/>
         <image name="Listening1" width="240" height="240"/>
         <image name="Listening2" width="240" height="240"/>
