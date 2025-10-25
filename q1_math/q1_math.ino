@@ -18,7 +18,8 @@ const IPAddress gateway(192, 168, 0, 1);
 const IPAddress subnet(255, 255, 255, 0);
 
 // OSC送信先（アプリ）
-char oscAppHost[16] = "192.168.0.13";       //15文字+1文字(\0)
+char oscAppHost1[16] = "192.168.0.200";       //15文字+1文字(\0)
+char oscAppHost2[16] = "192.168.0.201";   
 extern const int oscPort = 33333;
 
 void setup()
@@ -60,7 +61,8 @@ void loop() {
 
   if (accMag > 3)
   {
-    OscWiFi.send(oscAppHost, oscPort, "/math/to/app/rooma", ROOM_NUM);
+    OscWiFi.send(oscAppHost1, oscPort, "/math/to/app/roomb", ROOM_NUM);
+    OscWiFi.send(oscAppHost2, oscPort, "/math/to/app/roomb", ROOM_NUM);
   }
 
   delay(100);

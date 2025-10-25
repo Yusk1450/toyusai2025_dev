@@ -39,7 +39,7 @@ class ViewController: UIViewController
 
 	func getPlayerItem() -> AVPlayerItem?
 	{
-		guard let url = Bundle.main.url(forResource: "test", withExtension: "mov") else
+		guard let url = Bundle.main.url(forResource: "INK_main", withExtension: "mp4") else
 		{
 			print("URL is nil")
 			return nil
