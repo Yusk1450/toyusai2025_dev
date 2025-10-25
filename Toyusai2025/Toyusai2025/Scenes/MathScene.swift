@@ -12,10 +12,17 @@ class MathScene: BaseScene
 	var count = 0
 	var isMoviePlaying = false
 	
+	/* -------------------------------------------------
+	 * シーン開始
+	 -------------------------------------------------*/
 	override func start(viewController: UIViewController?)
 	{
+		GameDirector.shared.sendSimpleOSCMessage(ip: "192.168.0.207", address: "/light_on")
 	}
 	
+	/* -------------------------------------------------
+	 * シーン中
+	 -------------------------------------------------*/
 	override func update(viewController: UIViewController?)
 	{
 		guard let viewController = viewController as? MathViewController else
@@ -28,7 +35,8 @@ class MathScene: BaseScene
 		{
 			if (!isMoviePlaying)
 			{
-				viewController.play()
+				GameDirector.shared.sendSimpleOSCMessage(ip: "192.168.0.201", address: OSCAddress.MathMovieStart.rawValue)
+				self.playMovie()
 				self.isMoviePlaying = true
 			}
 		}
@@ -38,6 +46,24 @@ class MathScene: BaseScene
 			
 			viewController.SpeedCount.text = self.count.description
 		}
+	}
+	
+	func playMovie()
+	{
+		let director = GameDirector.shared
+		guard let viewController = director.currentViewController as? MathViewController else
+		{
+			return
+		}
+		viewController.play()
+	}
+	
+	/* -------------------------------------------------
+	 * シーン終了
+	 -------------------------------------------------*/
+	override func stop(viewController: UIViewController?)
+	{
+		GameDirector.shared.sendSimpleOSCMessage(ip: "192.168.0.207", address: "/light_off")
 	}
 	
 	func movePointH()
@@ -52,7 +78,6 @@ class MathScene: BaseScene
 			else
 			{
 				// 数学クリア
-				viewController.answerBtn.isHidden = false
 				GameDirector.shared.sendFlagToServer(flagIndex: 2)
 			}
 		}

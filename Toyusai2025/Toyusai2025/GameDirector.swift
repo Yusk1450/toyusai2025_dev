@@ -21,6 +21,7 @@ enum OSCAddress: String
 {
 	case MathDeviceRoomA = "/math/to/app/rooma"
 	case MathDeviceRoomB = "/math/to/app/roomb"
+	case MathMovieStart = "/math/movie/start"
 	case InformaticsDeviceSend = "/rfid_confirm"
 	case InformaticsDeviceReceive = "/uuid"
 }
@@ -38,10 +39,10 @@ class GameDirector: NSObject
 	var delegate:GameDirectorDelegate?
 
 	// 部屋種別
-	var roomType:RoomType = .B
+	var roomType:RoomType = .A
 	
 	// サーバIP
-	let ip = "192.168.0.33"
+	let ip = "192.168.0.199"
 	// サーバURL
 	var url:String!
 	
@@ -85,7 +86,7 @@ class GameDirector: NSObject
 			print(error.localizedDescription)
 		}
 		
-		self.url = "http://\(self.ip):8888/WORKS/NBU/toyusai2025_dev/server"
+		self.url = "http://\(self.ip):8888/server"
 	}
 	
 	/* ----------------------------------------------------
@@ -98,13 +99,7 @@ class GameDirector: NSObject
 		// すべての誘導灯をOFFにする
 //		for ip in self.lightIPAddress
 //		{
-//			var client = OSCUdpClient(host: ip, port: self.port)
-//			if let message = try? OSCMessage(with: "/light_off", arguments: [])
-//			{
-//				if let _ = try? client.send(message)
-//				{
-//				}
-//			}
+//			self.sendSimpleOSCMessage(ip: ip, address: "/light_off")
 //		}
 		
 		self.gameTimer = Timer.scheduledTimer(timeInterval: 1.0,
@@ -125,6 +120,17 @@ class GameDirector: NSObject
 		if (self.remainGameTime < 0)
 		{
 			self.gameTimer?.invalidate()
+			
+			if let viewController = self.currentViewController
+			{
+				let storyboard = UIStoryboard(name: "Main", bundle: nil)
+				if let timeoverViewController = storyboard.instantiateViewController(withIdentifier: "TimeoverEndViewController") as? TimeoverEndViewController
+				{
+					viewController.present(timeoverViewController, animated: true, completion: nil)
+				}
+			}
+			
+			return
 		}
 		
 		// サーバのフラグを確認する
@@ -191,6 +197,20 @@ class GameDirector: NSObject
 //		self.currentScene?.delegate = self
 		self.currentScene?.start(viewController: self.currentViewController)
 	}
+	
+	/* ----------------------------------------------------
+	 * OSCの送信
+	 ----------------------------------------------------*/
+	func sendSimpleOSCMessage(ip:String, address:String)
+	{
+		let client = OSCUdpClient(host: ip, port: self.port)
+		if let message = try? OSCMessage(with: address, arguments: [])
+		{
+			if let _ = try? client.send(message)
+			{
+			}
+		}
+	}
 }
 
 extension GameDirector: OSCUdpServerDelegate
@@ -213,7 +233,7 @@ extension GameDirector: OSCUdpServerDelegate
 					}
 					else if (self.roomType == .B)
 					{
-						scene.movePointM()
+						scene.movePointH()
 					}
 				}
 			}
@@ -229,13 +249,23 @@ extension GameDirector: OSCUdpServerDelegate
 					}
 					else if (self.roomType == .B)
 					{
-						scene.movePointH()
+						scene.movePointM()
 					}
+				}
+			}
+			// 動画を再生する
+			else if (message.addressPattern.fullPath == OSCAddress.MathMovieStart.rawValue)
+			{
+				if let scene = self.currentScene as? MathScene
+				{
+					scene.playMovie()
 				}
 			}
 			// 情報デバイス
 			else if (message.addressPattern.fullPath == OSCAddress.InformaticsDeviceReceive.rawValue)
 			{
+				print(message.arguments)
+				
 				if let uuid1 = message.arguments[0] as? String,
 				   let uuid2 = message.arguments[1] as? String,
 				   let uuid3 = message.arguments[2] as? String

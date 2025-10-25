@@ -2,12 +2,12 @@
     {
         "comment": "スタートA",
         "name": "start_a",
-        "clear": true
+        "clear": false
     },
     {
         "comment": "スタートB",
         "name": "start_b",
-        "clear": true
+        "clear": false
     },
     {
         "comment": "数学",

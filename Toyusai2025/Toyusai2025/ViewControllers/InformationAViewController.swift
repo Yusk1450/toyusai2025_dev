@@ -15,7 +15,6 @@ class InformationAViewController: BaseViewController
         super.viewDidLoad()
 
 		let director = GameDirector.shared
-		director.currentViewController = self
 		director.changeScene(scene: InformaticsScene())
     }
     

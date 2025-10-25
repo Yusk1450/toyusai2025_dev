@@ -7,11 +7,8 @@
 
 import UIKit
 
-class ArtBViewController: UIViewController
+class ArtBViewController: BaseViewController
 {
-
-    @IBOutlet weak var TimerLbl: CustomLabel!
-    
     @IBOutlet weak var HourTextField: UITextField!
     @IBOutlet weak var MinuteTextField: UITextField!
     
@@ -19,10 +16,22 @@ class ArtBViewController: UIViewController
     {
         super.viewDidLoad()
 
+		let director = GameDirector.shared
+		director.currentViewController = self
+		director.changeScene(scene: ArtScene())
     }
     
-    @IBAction func AnserBtn(_ sender: Any)
+    @IBAction func AnswerBtnAction(_ sender: Any)
     {
+		let director = GameDirector.shared
+		if let scene = director.currentScene as? ArtScene,
+		   let hourText = HourTextField.text,
+		   let minuteText = MinuteTextField.text
+		{
+			if (scene.checkAnswer("\(hourText)\(minuteText)"))
+			{
+			}
+		}
     }
     
 

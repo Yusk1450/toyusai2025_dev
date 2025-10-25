@@ -17,7 +17,7 @@ const IPAddress gateway(192, 168, 0, 1);
 const IPAddress subnet(255, 255, 255, 0);
 
 // OSC送信先（アプリ）
-char oscAppHost[16] = "192.168.0.13";       //15文字+1文字(\0)
+char oscAppHost[16] = "192.168.0.201";       //15文字+1文字(\0)
 extern const int oscPort = 33333;
 
 // リーダー1のピン定義
@@ -114,6 +114,11 @@ void showCardInfo(MFRC522 &rfid, int index) {
 void onOscConfirmRFID(const OscMessage& m) {
 
   OscWiFi.send(oscAppHost, oscPort, "/uuid", uids[0], uids[1], uids[2]);
+  OscWiFi.update();
+
+  Serial.println(uids[0]);
+  Serial.println(uids[1]);
+  Serial.println(uids[2]);
 
   Serial.println("onOscConfirmRFID");
 

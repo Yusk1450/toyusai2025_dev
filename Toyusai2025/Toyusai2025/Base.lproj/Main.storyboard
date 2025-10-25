@@ -504,7 +504,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="timeCountLbl" destination="RA6-5z-Grl" id="AcD-O6-uL1"/>
+                        <outlet property="timeCountLbl" destination="RA6-5z-Grl" id="1y6-s8-yC2"/>
+                        <segue destination="m6g-kM-N3e" kind="presentation" identifier="toEnglish" id="gyk-4k-t7m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b6x-FN-Yyd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -630,7 +631,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="AnswerBtnAction:" destination="Eig-1v-EmT" eventType="touchUpInside" id="PLH-gd-BYU"/>
-                                    <segue destination="Gdy-VM-9Or" kind="presentation" id="STn-Fh-zj5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -639,7 +639,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="ACC-ME-Cvn"/>
                     <connections>
-                        <outlet property="timeCountLbl" destination="FC8-3p-LEG" id="3nW-HD-NdL"/>
+                        <outlet property="timeCountLbl" destination="FC8-3p-LEG" id="Akr-tF-umW"/>
+                        <segue destination="XCL-w4-Yxe" kind="presentation" identifier="toEnglish" id="19m-jq-dca"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R5i-8B-DvL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -649,7 +650,7 @@
         <!--EnglishA View Controller-->
         <scene sceneID="SQE-aE-dqg">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="m6g-kM-N3e" customClass="EnglishAViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="m6g-kM-N3e" customClass="EnglishAViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="goz-qe-fAJ">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -670,7 +671,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="600" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsM-tO-Cu7" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="600" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsM-tO-Cu7" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
                                 <rect key="frame" x="914" y="60" width="72" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -882,8 +883,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="AnserBtn:" destination="m6g-kM-N3e" eventType="touchUpInside" id="gmJ-Ix-gxq"/>
-                                    <segue destination="G8C-dK-d4n" kind="presentation" id="gJE-AQ-HzB"/>
+                                    <action selector="AnswerBtnAction:" destination="m6g-kM-N3e" eventType="touchUpInside" id="gmJ-Ix-gxq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -892,17 +892,18 @@
                     </view>
                     <connections>
                         <outlet property="TextField" destination="X6L-1v-AbU" id="GnJ-OV-f6E"/>
-                        <outlet property="TimerLbl" destination="hsM-tO-Cu7" id="29S-bL-5GP"/>
+                        <outlet property="timeCountLbl" destination="hsM-tO-Cu7" id="jzx-dK-jY4"/>
+                        <segue destination="0a9-C8-GXf" kind="presentation" identifier="toArt" id="Rld-0H-gk8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mx1-Fg-mpd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3193" y="-442"/>
+            <point key="canvasLocation" x="2369" y="-442"/>
         </scene>
         <!--ArtA View Controller-->
         <scene sceneID="niV-WF-3YH">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="0a9-C8-GXf" customClass="ArtAViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="0a9-C8-GXf" customClass="ArtAViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OdG-oy-hqp">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -923,7 +924,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="600" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrF-Fe-Ic3" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="600" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrF-Fe-Ic3" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
                                 <rect key="frame" x="914" y="60" width="72" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1112,8 +1113,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="AnserBtn:" destination="0a9-C8-GXf" eventType="touchUpInside" id="spO-qO-W1I"/>
-                                    <segue destination="m6g-kM-N3e" kind="presentation" id="anF-FP-MDQ"/>
+                                    <action selector="AnswerBtnAction:" destination="0a9-C8-GXf" eventType="touchUpInside" id="spO-qO-W1I"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1123,17 +1123,18 @@
                     <connections>
                         <outlet property="DayTextField" destination="Jzw-hF-5VR" id="EoW-R9-AIQ"/>
                         <outlet property="MonthTextField" destination="sHX-h3-Vkw" id="AdG-hx-RY5"/>
-                        <outlet property="TimerLbl" destination="wrF-Fe-Ic3" id="EcV-jd-Mdh"/>
+                        <outlet property="timeCountLbl" destination="wrF-Fe-Ic3" id="iKh-4c-wz1"/>
+                        <segue destination="G8C-dK-d4n" kind="presentation" identifier="toJapanese" id="WsV-I9-psa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BWF-eZ-RF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2348" y="-442"/>
+            <point key="canvasLocation" x="3156" y="-442"/>
         </scene>
         <!--ArtB View Controller-->
         <scene sceneID="OlP-c3-pNa">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Gdy-VM-9Or" customClass="ArtBViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="Gdy-VM-9Or" customClass="ArtBViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ftt-Fl-0wc">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1154,7 +1155,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="600" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZP-tL-ZEW" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="600" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZP-tL-ZEW" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
                                 <rect key="frame" x="914" y="60" width="72" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1343,8 +1344,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="AnserBtn:" destination="Gdy-VM-9Or" eventType="touchUpInside" id="wDS-YX-yuq"/>
-                                    <segue destination="XCL-w4-Yxe" kind="presentation" id="TVI-40-7w0"/>
+                                    <action selector="AnswerBtnAction:" destination="Gdy-VM-9Or" eventType="touchUpInside" id="wDS-YX-yuq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1355,12 +1355,13 @@
                     <connections>
                         <outlet property="HourTextField" destination="rfd-VV-Wsr" id="RBX-IP-gmY"/>
                         <outlet property="MinuteTextField" destination="G0G-IS-kNh" id="cH2-eo-6Ht"/>
-                        <outlet property="TimerLbl" destination="SZP-tL-ZEW" id="zRU-Fa-g1k"/>
+                        <outlet property="timeCountLbl" destination="SZP-tL-ZEW" id="bra-y5-miL"/>
+                        <segue destination="G8C-dK-d4n" kind="presentation" identifier="toJapanese" id="QD3-9d-xv1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MxK-DG-f2m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2348" y="433"/>
+            <point key="canvasLocation" x="3156" y="433"/>
         </scene>
         <!--Camera Art View Controller-->
         <scene sceneID="Lsn-s9-KXD">
@@ -1422,7 +1423,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pen-Xa-eZQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2348" y="1176"/>
+            <point key="canvasLocation" x="3156" y="1228"/>
         </scene>
         <!--Japanese View Controller-->
         <scene sceneID="cNX-n0-yBG">
@@ -1448,7 +1449,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="600" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtH-vo-GsB" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="600" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtH-vo-GsB" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
                                 <rect key="frame" x="914" y="60" width="72" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1588,7 +1589,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="AnserBtn:" destination="G8C-dK-d4n" eventType="touchUpInside" id="rA5-QX-54z"/>
+                                    <action selector="AnswerBtnAction:" destination="G8C-dK-d4n" eventType="touchUpInside" id="rA5-QX-54z"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1597,12 +1598,68 @@
                     </view>
                     <connections>
                         <outlet property="TextField" destination="3jh-x9-uU1" id="I7X-We-k7b"/>
-                        <outlet property="TimerLbl" destination="mtH-vo-GsB" id="SgO-IA-76S"/>
+                        <outlet property="timeCountLbl" destination="mtH-vo-GsB" id="r59-AE-NEM"/>
+                        <segue destination="lLl-PP-b9l" kind="presentation" identifier="toNormal" id="fiM-no-0zf"/>
+                        <segue destination="GaK-OY-Ksa" kind="presentation" identifier="toBad" id="dQV-Mr-GTS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wMG-aM-9G8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4022.7777777777778" y="3.7037037037037033"/>
+        </scene>
+        <!--Normal End View Controller-->
+        <scene sceneID="Fvt-a7-Eax">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="lLl-PP-b9l" customClass="NormalEndViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lPg-wo-l8o">
+                        <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ksv-pb-wNj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Nt-3d-QP0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4780" y="4"/>
+        </scene>
+        <!--Timeover End View Controller-->
+        <scene sceneID="0x3-yx-SXj">
+            <objects>
+                <viewController storyboardIdentifier="TimeoverEndViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="Ggw-ef-Ngg" customClass="TimeoverEndViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GHc-Fm-Yqd">
+                        <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="timeoverbg_1" translatesAutoresizingMaskIntoConstraints="NO" id="eew-ak-ceC">
+                                <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Tfj-gI-xA1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="eew-ak-ceC" id="x7c-TZ-UQp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4pM-lS-Xqw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4780" y="858.51851851851848"/>
+        </scene>
+        <!--Bad End View Controller-->
+        <scene sceneID="rvh-Qr-yrE">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="GaK-OY-Ksa" customClass="BadEndViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SpM-ic-ghq">
+                        <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="RQW-q7-bEr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aZH-5j-Mhb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4780" y="-682"/>
         </scene>
         <!--CameraJP View Controller-->
         <scene sceneID="vqz-Rw-3a6">
@@ -1644,7 +1701,7 @@
         <!--EnglishB View Controller-->
         <scene sceneID="Sxb-5f-mqB">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="XCL-w4-Yxe" customClass="EnglishBViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="XCL-w4-Yxe" customClass="EnglishBViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qPX-hO-erB">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1665,7 +1722,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="600" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kab-EF-Z2N" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="600" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kab-EF-Z2N" customClass="CustomLabel" customModule="Toyusai2025" customModuleProvider="target">
                                 <rect key="frame" x="914" y="60" width="72" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1877,8 +1934,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="AnserBtn:" destination="XCL-w4-Yxe" eventType="touchUpInside" id="Kfz-5T-f8R"/>
-                                    <segue destination="G8C-dK-d4n" kind="presentation" id="yge-S7-XDj"/>
+                                    <action selector="AnswerBtnAction:" destination="XCL-w4-Yxe" eventType="touchUpInside" id="Kfz-5T-f8R"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1887,17 +1943,18 @@
                     </view>
                     <connections>
                         <outlet property="TextField" destination="Y4Q-ZV-clV" id="xnp-vr-oKv"/>
-                        <outlet property="TimerLbl" destination="Kab-EF-Z2N" id="hDU-z2-5IX"/>
+                        <outlet property="timeCountLbl" destination="Kab-EF-Z2N" id="ha2-JS-IBH"/>
+                        <segue destination="Gdy-VM-9Or" kind="presentation" identifier="toArt" id="nnu-Vw-RaN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJc-Cu-TLn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3193" y="433"/>
+            <point key="canvasLocation" x="2369" y="433"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gJE-AQ-HzB"/>
-        <segue reference="A39-ik-fhK"/>
+        <segue reference="WsV-I9-psa"/>
+        <segue reference="Rhd-mx-pV4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="HeartBycycle" width="240" height="240"/>
@@ -1916,6 +1973,7 @@
         <image name="button_g" width="60" height="60"/>
         <image name="button_r" width="60" height="60"/>
         <image name="paper_black" width="1080" height="810"/>
+        <image name="timeoverbg_1" width="1080" height="810"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -7,21 +7,27 @@
 
 import UIKit
 
-class JapaneseViewController: UIViewController
+class JapaneseViewController: BaseViewController
 {
-    
-    @IBOutlet weak var TimerLbl: CustomLabel!
-    
-    @IBOutlet weak var TextField: UITextField!
+	@IBOutlet weak var TextField: UITextField!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
+		let director = GameDirector.shared
+		director.currentViewController = self
+		director.changeScene(scene: JapaneseScene())
     }
     
-    @IBAction func AnserBtn(_ sender: Any)
+    @IBAction func AnswerBtnAction(_ sender: Any)
     {
+		let director = GameDirector.shared
+		if let scene = director.currentScene as? JapaneseScene,
+		   let text = self.TextField.text
+		{
+			scene.checkAnswer(answer: text)
+		}
     }
     
 }

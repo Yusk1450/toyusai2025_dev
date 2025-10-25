@@ -29,7 +29,14 @@ class ViewController: UIViewController
 		self.startButton.isHidden = true
 		
 		let director = GameDirector.shared
-		director.sendFlagToServer(flagIndex: director.roomType == .A ? 0 : 1)
+		if (director.roomType == .A)
+		{
+			director.sendFlagToServer(flagIndex: 0)
+		}
+		else if (director.roomType == .B)
+		{
+			director.sendFlagToServer(flagIndex: 1)
+		}
 				
 		self.waitingTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
 			
