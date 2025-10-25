@@ -27,7 +27,6 @@ class MathViewController: BaseViewController
         super.viewDidLoad()
 		
 		let director = GameDirector.shared
-		director.currentViewController = self
 		director.changeScene(scene: MathScene())
 		
 		NotificationCenter.default.addObserver(self,
@@ -59,6 +58,7 @@ class MathViewController: BaseViewController
 	@objc func playerDidFinishPlaying()
 	{
 		self.playerView.isHidden = true
+		self.answerBtn.isHidden = false
 	}
     
 	func getPlayerItem() -> AVPlayerItem?

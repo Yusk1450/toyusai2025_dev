@@ -18,7 +18,7 @@ const IPAddress gateway(192, 168, 0, 1);
 const IPAddress subnet(255, 255, 255, 0);
 
 // OSC送信先（アプリ）
-char oscAppHost[16] = "192.168.0.13";       //15文字+1文字(\0)
+char oscAppHost[16] = "192.168.0.200";       //15文字+1文字(\0)
 extern const int oscPort = 33333;
 
 void setup()

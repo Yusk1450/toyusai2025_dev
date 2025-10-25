@@ -7,11 +7,8 @@
 
 import UIKit
 
-class ArtAViewController: UIViewController
+class ArtAViewController: BaseViewController
 {
-
-    @IBOutlet weak var TimerLbl: CustomLabel!
-    
     @IBOutlet weak var MonthTextField: UITextField!
     @IBOutlet weak var DayTextField: UITextField!
     
@@ -19,9 +16,21 @@ class ArtAViewController: UIViewController
     {
         super.viewDidLoad()
 
-
+		let director = GameDirector.shared
+		director.currentViewController = self
+		director.changeScene(scene: ArtScene())
     }
 
-    @IBAction func AnserBtn(_ sender: Any) {
+    @IBAction func AnswerBtnAction(_ sender: Any)
+	{
+		let director = GameDirector.shared
+		if let scene = director.currentScene as? ArtScene,
+		   let monthText = MonthTextField.text,
+		   let dayText = DayTextField.text
+		{
+			if (scene.checkAnswer("\(monthText)\(dayText)"))
+			{
+			}
+		}
     }
 }

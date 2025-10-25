@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol GameSceneDelegate: AnyObject
 {
@@ -16,10 +17,16 @@ class BaseScene: NSObject
 {
 	var scenario = [String]()
 	
+	var audioPlayer:AVAudioPlayer?
 	var delegate:GameSceneDelegate?
 	
 	func start(viewController:UIViewController?)
 	{
+		let path = Bundle.main.path(forResource: "sound", ofType: "mp3")
+		let url = URL(fileURLWithPath: path!)
+		self.audioPlayer = try? AVAudioPlayer(contentsOf: url)
+		self.audioPlayer?.prepareToPlay()
+		
 		self.delegate?.gameSceneDidStart(scene: self)
 	}
 	
@@ -29,5 +36,10 @@ class BaseScene: NSObject
 	
 	func stop(viewController:UIViewController?)
 	{
+	}
+	
+	func playNextSound()
+	{
+		self.audioPlayer?.play()
 	}
 }

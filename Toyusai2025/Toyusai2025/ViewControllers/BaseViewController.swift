@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class BaseViewController: UIViewController
 {
@@ -24,15 +25,16 @@ class BaseViewController: UIViewController
 		NotificationCenter.default.addObserver(self,selector: #selector(keyboardWillHideNotification),name: UIResponder.keyboardWillHideNotification,object: nil)
 		
 		let director = GameDirector.shared
+		director.currentViewController = self
 		director.delegate = self
 	}
 	
-	override func viewDidDisappear(_ animated: Bool)
-	{
-		super.viewDidDisappear(animated)
-		
-		GameDirector.shared.delegate = nil
-	}
+//	override func viewWillDisappear(_ animated: Bool)
+//	{
+//		super.viewWillDisappear(animated)
+//
+//		GameDirector.shared.delegate = nil
+//	}
 	
 	@objc func keyboardWillShowNotification(notification:NSNotification)
 	{
@@ -41,7 +43,7 @@ class BaseViewController: UIViewController
 		
 		if (!isLocalUserInfoKey.boolValue) { return }
 		
-		let transform = CGAffineTransform(translationX: 0, y: -200)
+		let transform = CGAffineTransform(translationX: 0, y: -300)
 		self.view.transform = transform
 	}
 	
@@ -58,12 +60,13 @@ class BaseViewController: UIViewController
 
 extension BaseViewController : GameDirectorDelegate
 {
-	func gameDirectorDidChangeNextScript(gameDirector: GameDirector, script: String) {
+	func gameDirectorDidChangeNextScript(gameDirector: GameDirector, script: String)
+	{
 	}
 	
 	func gameDirectorDidUpdate(gameDirector: GameDirector)
 	{
 		self.timeCountLbl.text = GameDirector.shared.remainGameTime.description
+		print(GameDirector.shared.remainGameTime.description)
 	}
-
 }

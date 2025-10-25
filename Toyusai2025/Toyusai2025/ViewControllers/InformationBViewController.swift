@@ -15,14 +15,18 @@ class InformationBViewController: BaseViewController
         super.viewDidLoad()
 
 		let director = GameDirector.shared
-		director.currentViewController = self
 		director.changeScene(scene: InformaticsScene())
     }
     
     @IBAction func AnswerBtnAction(_ sender: Any)
 	{
-		
+		if let scene = GameDirector.shared.currentScene as? InformaticsScene
+		{
+			scene.checkMarks()
+		}
     }
+	
+	
     
 
 }

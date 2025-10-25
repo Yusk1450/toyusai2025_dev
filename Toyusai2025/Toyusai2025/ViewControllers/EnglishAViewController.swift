@@ -7,22 +7,29 @@
 
 import UIKit
 
-class EnglishAViewController: UIViewController, UITextFieldDelegate
+class EnglishAViewController: BaseViewController, UITextFieldDelegate
 {
-
-    @IBOutlet weak var TimerLbl: CustomLabel!
-    
     @IBOutlet weak var TextField: UITextField!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
+		let director = GameDirector.shared
+		director.currentViewController = self
+		director.changeScene(scene: EnglishScene())
     }
     
-    @IBAction func AnserBtn(_ sender: Any)
+    @IBAction func AnswerBtnAction(_ sender: Any)
     {
-        
+		let director = GameDirector.shared
+		if let scene = director.currentScene as? EnglishScene,
+		   let text = TextField.text
+		{
+			if (scene.checkAnswer(text))
+			{
+			}
+		}
     }
     
     
