@@ -72,7 +72,7 @@ class CameraJPViewController: UIViewController, ARSCNViewDelegate
             queue: .main
         )
         {_ in
-            print("画面遷移をする")
+			self.performSegue(withIdentifier: "toExamNumber", sender: nil)
         }
         
         let videoNode = SKVideoNode(avPlayer: player)

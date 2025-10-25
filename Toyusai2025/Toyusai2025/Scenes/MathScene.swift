@@ -87,8 +87,11 @@ class MathScene: BaseScene
 	{
 		if let viewController = GameDirector.shared.currentViewController as? MathViewController
 		{
-			viewController.PointM.center.x += 10
-			viewController.PointMLbl.center.x += 10
+			if (viewController.PointM.center.x <= 887)
+			{
+				viewController.PointM.center.x += 10
+				viewController.PointMLbl.center.x += 10
+			}
 		}
 	}
 }

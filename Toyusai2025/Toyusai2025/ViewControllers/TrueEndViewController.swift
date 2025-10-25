@@ -7,14 +7,31 @@
 
 import UIKit
 
-class TrueEndViewController: UIViewController {
-
-    override func viewDidLoad() {
+class TrueEndViewController: UIViewController
+{
+	let imageNames = ["TrueEndBg_2", "TrueEndBg_3"]
+	var imageIndex = 0
+	
+	@IBOutlet weak var imageView: UIImageView!
+	
+	override func viewDidLoad()
+	{
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
-
+	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
+	{
+		if (self.imageIndex >= self.imageNames.count)
+		{
+			self.performSegue(withIdentifier: "toTrue2", sender: nil)
+			return
+		}
+		
+		self.imageView.image = UIImage(named: self.imageNames[self.imageIndex])
+		self.imageIndex += 1
+		
+		
+	}
 
 }

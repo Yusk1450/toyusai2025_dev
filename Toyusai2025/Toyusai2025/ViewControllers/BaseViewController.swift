@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class BaseViewController: UIViewController
+class BaseViewController: UIViewController, UITextFieldDelegate
 {
 	@IBOutlet weak var timeCountLbl: UILabel!
 	
@@ -35,6 +35,12 @@ class BaseViewController: UIViewController
 //
 //		GameDirector.shared.delegate = nil
 //	}
+	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool
+	{
+		textField.resignFirstResponder()
+		return true
+	}
 	
 	@objc func keyboardWillShowNotification(notification:NSNotification)
 	{

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EnglishAViewController: BaseViewController, UITextFieldDelegate
+class EnglishAViewController: BaseViewController
 {
     @IBOutlet weak var TextField: UITextField!
     
