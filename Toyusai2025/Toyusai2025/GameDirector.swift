@@ -39,7 +39,7 @@ class GameDirector: NSObject
 	var delegate:GameDirectorDelegate?
 
 	// 部屋種別
-	var roomType:RoomType = .A
+	var roomType:RoomType = .B
 	
 	// サーバIP
 	let ip = "192.168.0.199"

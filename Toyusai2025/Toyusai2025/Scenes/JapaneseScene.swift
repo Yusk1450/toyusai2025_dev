@@ -22,15 +22,28 @@ class JapaneseScene: BaseScene
 		{
 			if (GameDirector.shared.gimmickFlags[7])
 			{
-				viewController?.performSegue(withIdentifier: "toNormal", sender: nil)
+				let storyboard = UIStoryboard(name: "Main", bundle: nil)
+				if let viewController = storyboard.instantiateViewController(withIdentifier: "NormalEndViewController") as? NormalEndViewController
+				{
+					GameDirector.shared.currentViewController?.present(viewController, animated: true, completion: nil)
+				}
 			}
 			else if (GameDirector.shared.gimmickFlags[8])
 			{
-				viewController?.performSegue(withIdentifier: "toBad", sender: nil)
+				let storyboard = UIStoryboard(name: "Main", bundle: nil)
+				if let viewController = storyboard.instantiateViewController(withIdentifier: "BadEndViewController") as? BadEndViewController
+				{
+					GameDirector.shared.currentViewController?.present(viewController, animated: true, completion: nil)
+				}
 			}
 			else if (GameDirector.shared.gimmickFlags[9])
 			{
-				viewController?.performSegue(withIdentifier: "toTrue", sender: nil)
+				let storyboard = UIStoryboard(name: "Main", bundle: nil)
+				if let viewController = storyboard.instantiateViewController(withIdentifier: "TrueEndViewController") as? TrueEndViewController
+				{
+					GameDirector.shared.currentViewController?.present(viewController, animated: true, completion: nil)
+				}
+
 			}
 		}
 	}
@@ -48,13 +61,23 @@ class JapaneseScene: BaseScene
 		{
 			self.isMoved = true
 			GameDirector.shared.sendFlagToServer(flagIndex: 7)
-			director.currentViewController?.performSegue(withIdentifier: "toNormal", sender: nil)
+
+			let storyboard = UIStoryboard(name: "Main", bundle: nil)
+			if let viewController = storyboard.instantiateViewController(withIdentifier: "NormalEndViewController") as? NormalEndViewController
+			{
+				director.currentViewController?.present(viewController, animated: true, completion: nil)
+			}
 		}
 		else
 		{
 			self.isMoved = true
 			GameDirector.shared.sendFlagToServer(flagIndex: 8)
-			director.currentViewController?.performSegue(withIdentifier: "toBad", sender: nil)
+
+			let storyboard = UIStoryboard(name: "Main", bundle: nil)
+			if let viewController = storyboard.instantiateViewController(withIdentifier: "BadEndViewController") as? BadEndViewController
+			{
+				director.currentViewController?.present(viewController, animated: true, completion: nil)
+			}
 		}
 	}
 }

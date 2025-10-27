@@ -1672,19 +1672,16 @@
                     <connections>
                         <outlet property="TextField" destination="3jh-x9-uU1" id="I7X-We-k7b"/>
                         <outlet property="timeCountLbl" destination="mtH-vo-GsB" id="r59-AE-NEM"/>
-                        <segue destination="lLl-PP-b9l" kind="presentation" identifier="toNormal" id="fiM-no-0zf"/>
-                        <segue destination="GaK-OY-Ksa" kind="presentation" identifier="toBad" id="dQV-Mr-GTS"/>
-                        <segue destination="V4o-Do-zNf" kind="presentation" identifier="toTrue" id="e8N-g0-DQy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wMG-aM-9G8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4022.7777777777778" y="3.7037037037037033"/>
+            <point key="canvasLocation" x="4023" y="4"/>
         </scene>
         <!--Normal End View Controller-->
         <scene sceneID="Fvt-a7-Eax">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="lLl-PP-b9l" customClass="NormalEndViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NormalEndViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="lLl-PP-b9l" customClass="NormalEndViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lPg-wo-l8o">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1732,7 +1729,7 @@
         <!--True End View Controller-->
         <scene sceneID="Oka-Vv-m16">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="pwK-nE-FWZ" customClass="TrueEndViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TrueEndViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="pwK-nE-FWZ" customClass="TrueEndViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VWn-40-6cG">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1790,7 +1787,7 @@
         <!--Bad End View Controller-->
         <scene sceneID="rvh-Qr-yrE">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="GaK-OY-Ksa" customClass="BadEndViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BadEndViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="GaK-OY-Ksa" customClass="BadEndViewController" customModule="Toyusai2025" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SpM-ic-ghq">
                         <rect key="frame" x="0.0" y="0.0" width="1080" height="810"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2186,8 +2183,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="WsV-I9-psa"/>
-        <segue reference="e8N-g0-DQy"/>
-        <segue reference="Rhd-mx-pV4"/>
+        <segue reference="A39-ik-fhK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Credits" width="367.5" height="1034"/>

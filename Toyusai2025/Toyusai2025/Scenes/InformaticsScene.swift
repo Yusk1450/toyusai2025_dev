@@ -26,10 +26,13 @@ class InformaticsScene: BaseScene
 		// 情報のクリアフラグを確認する
 		if (GameDirector.shared.gimmickFlags[3])
 		{
-			if GameDirector.shared.currentViewController is InformationAViewController ||
-			   GameDirector.shared.currentViewController is InformationBViewController
+			if let viewController = GameDirector.shared.currentViewController as? InformationAViewController
 			{
-				viewController?.performSegue(withIdentifier: "toEnglish", sender: nil)
+				viewController.performSegue(withIdentifier: "toEnglish", sender: nil)
+			}
+			if let viewController = GameDirector.shared.currentViewController as? InformationBViewController
+			{
+				viewController.performSegue(withIdentifier: "toEnglish", sender: nil)
 			}
 		}
 	}
@@ -60,7 +63,12 @@ class InformaticsScene: BaseScene
 		}
 		else
 		{
-			// TODO: ハズレの音を再生する
+			if let viewController = GameDirector.shared.currentViewController
+			{
+				let alert = UIAlertController(title: "", message: "違います", preferredStyle: .alert)
+				alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+				viewController.present(alert, animated: true, completion: nil)
+			}
 		}
 	}
 
